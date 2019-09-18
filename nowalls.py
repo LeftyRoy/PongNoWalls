@@ -350,15 +350,6 @@ while True:
 
     mainClock.tick(FPS)
 
-    if ball.rect.x > WIDTH:
-        ball.centerx = surface_rect.centerx
-        ball.centery = surface_rect.centery
-        ball.direction = randint(0, 1)
-    elif ball.rect.x < 0:
-        ball.centerx = surface_rect.centerx
-        ball.centery = surface_rect.centery
-        ball.direction - randint(2, 3)
-
     for event in pygame.event.get():
         if event.type == QUIT:
             terminate()

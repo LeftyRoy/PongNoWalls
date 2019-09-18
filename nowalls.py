@@ -104,7 +104,6 @@ computer_rect3 = computer_image3.get_rect()
 
 # ball image
 ball_image = pygame.image.load('Images/ball.png')
-ball_image = pygame.image.load('Images/ball.png')
 ball_rect = ball_image.get_rect()
 
 # player directions
@@ -374,13 +373,13 @@ while True:
                 UP = False
                 DOWN = True
                 STOPPED = False
-            if event.key == K_RIGHT:
-                RIGHT = True
-                LEFT = False
-                STOPPED = False
             if event.key == K_LEFT:
                 LEFT = True
                 RIGHT = False
+                STOPPED = False
+            if event.key == K_RIGHT:
+                RIGHT = True
+                LEFT = False
                 STOPPED = False
         elif event.type == KEYUP:
             if event.key == K_DOWN or event.key == K_UP:
@@ -403,30 +402,12 @@ while True:
     window_surface.fill(BACKGROUND_COLOR)
 
     # Net
+    y = 0
     net = surface_rect.centerx
-    net_rect0 = pygame.Rect(net, 0, 7, 7)
-    net_rect1 = pygame.Rect(net, 60, 7, 7)
-    net_rect2 = pygame.Rect(net, 120, 7, 7)
-    net_rect3 = pygame.Rect(net, 180, 7, 7)
-    net_rect4 = pygame.Rect(net, 240, 7, 7)
-    net_rect5 = pygame.Rect(net, 300, 7, 7)
-    net_rect6 = pygame.Rect(net, 360, 7, 7)
-    net_rect7 = pygame.Rect(net, 420, 7, 7)
-    net_rect8 = pygame.Rect(net, 480, 7, 7)
-    net_rect9 = pygame.Rect(net, 540, 7, 7)
-    net_rect10 = pygame.Rect(net, 595, 7, 7)
-
-    pygame.draw.rect(window_surface, TEXT_COLOR, (net_rect0.left, net_rect0.top, net_rect0.width, net_rect0.height))
-    pygame.draw.rect(window_surface, TEXT_COLOR, (net_rect1.left, net_rect1.top, net_rect1.width, net_rect1.height))
-    pygame.draw.rect(window_surface, TEXT_COLOR, (net_rect2.left, net_rect2.top, net_rect2.width, net_rect2.height))
-    pygame.draw.rect(window_surface, TEXT_COLOR, (net_rect3.left, net_rect3.top, net_rect3.width, net_rect3.height))
-    pygame.draw.rect(window_surface, TEXT_COLOR, (net_rect4.left, net_rect4.top, net_rect4.width, net_rect4.height))
-    pygame.draw.rect(window_surface, TEXT_COLOR, (net_rect5.left, net_rect5.top, net_rect5.width, net_rect5.height))
-    pygame.draw.rect(window_surface, TEXT_COLOR, (net_rect6.left, net_rect6.top, net_rect6.width, net_rect6.height))
-    pygame.draw.rect(window_surface, TEXT_COLOR, (net_rect7.left, net_rect7.top, net_rect7.width, net_rect7.height))
-    pygame.draw.rect(window_surface, TEXT_COLOR, (net_rect8.left, net_rect8.top, net_rect8.width, net_rect8.height))
-    pygame.draw.rect(window_surface, TEXT_COLOR, (net_rect9.left, net_rect9.top, net_rect9.width, net_rect9.height))
-    pygame.draw.rect(window_surface, TEXT_COLOR, (net_rect10.left, net_rect10.top, net_rect10.width, net_rect10.height))
+    for x in range(10):
+        net_rect = pygame.Rect(net, y, 7, 10)
+        y += 60
+        pygame.draw.rect(window_surface, TEXT_COLOR, (net_rect.left, net_rect.top, net_rect.width, net_rect.height))
 
     sprites.draw(window_surface)
 
